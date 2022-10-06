@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "816417420154",
+    "project_id": "tastee-3aa94",
+    "storage_bucket": "tastee-3aa94.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:816417420154:android:a81217e2c968d6755c5cc3",
+        "android_client_info": {
+          "package_name": "com.example.task"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "816417420154-3jkmfkssb4u2740b23b1cokt4op90h16.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCnggXgm2Ge-HKAm5iIbO2X4CACyoegCmo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "816417420154-3jkmfkssb4u2740b23b1cokt4op90h16.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
