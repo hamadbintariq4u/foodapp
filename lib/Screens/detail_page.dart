@@ -51,6 +51,7 @@ class _DetailPageState extends State<DetailPage> {
               child: CircleAvatar(
                 radius: 110,
                 backgroundImage: NetworkImage(widget.image),
+                backgroundColor: Colors.white,
               ),
             ),
           ),

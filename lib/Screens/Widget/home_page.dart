@@ -3,6 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:task/Screens/Widget/item_container.dart';
+import 'package:task/Screens/cart_page.dart';
 import 'package:task/Screens/categories.dart';
 import 'package:task/Screens/detail_page.dart';
 
@@ -69,15 +70,19 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
   Widget drawerItem({
     required String name,
     required IconData icon,
+    required VoidCallback onTap,
   }) {
-    return ListTile(
-      leading: Icon(
-        icon,
-        color: Colors.white,
-      ),
-      title: Text(
-        name,
-        style: TextStyle(fontSize: 20, color: Colors.white),
+    return InkWell(
+      onTap: onTap,
+      child: ListTile(
+        leading: Icon(
+          icon,
+          color: Colors.white,
+        ),
+        title: Text(
+          name,
+          style: TextStyle(fontSize: 20, color: Colors.white),
+        ),
       ),
     );
   }
@@ -247,9 +252,27 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                     accountName: Text("Hamad Tariq"),
                     accountEmail: Text("hamadbintariq4u@gmail.com"),
                   ),
-                  drawerItem(icon: Icons.person, name: "Profile"),
-                  drawerItem(icon: Icons.add_shopping_cart, name: "Cart"),
-                  drawerItem(icon: Icons.shop, name: "Order"),
+                  drawerItem(
+                    icon: Icons.person,
+                    name: "Profile",
+                    onTap: () {},
+                  ),
+                  drawerItem(
+                    icon: Icons.add_shopping_cart,
+                    name: "Cart",
+                    onTap: () {
+                      Navigator.of(context).pushReplacement(
+                        MaterialPageRoute(
+                          builder: (context) => CartPage(),
+                        ),
+                      );
+                    },
+                  ),
+                  drawerItem(
+                    icon: Icons.shop,
+                    name: "Order",
+                    onTap: () {},
+                  ),
                   Divider(
                     thickness: 2,
                     color: Colors.white,
@@ -263,8 +286,16 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                       ),
                     ),
                   ),
-                  drawerItem(icon: Icons.lock, name: "Change"),
-                  drawerItem(icon: Icons.exit_to_app, name: "Log Out"),
+                  drawerItem(
+                    icon: Icons.lock,
+                    name: "Change",
+                    onTap: () {},
+                  ),
+                  drawerItem(
+                    icon: Icons.exit_to_app,
+                    name: "Log Out",
+                    onTap: () {},
+                  ),
                 ],
               ),
             ),
@@ -275,8 +306,18 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
           actions: [
             Padding(
               padding: const EdgeInsets.all(9.0),
-              child: CircleAvatar(
-                backgroundImage: AssetImage("images/profile.jpg"),
+              child: InkWell(
+                onTap: () {
+                  showDialog(
+                      context: context,
+                      useSafeArea: true,
+                      builder: (context) {
+                        return Image.asset("images/profile.jpg");
+                      });
+                },
+                child: CircleAvatar(
+                  backgroundImage: AssetImage("images/profile.jpg"),
+                ),
               ),
             )
           ],
@@ -318,6 +359,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                   recipe(),
                   pizza(),
                   drink(),
+
                   // categoriesContainer(image: "images/1.png", title: "All"),
                   // categoriesContainer(image: "images/2.png", title: "Burger"),
                   // categoriesContainer(image: "images/3.png", title: "Recipie"),

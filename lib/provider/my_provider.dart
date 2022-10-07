@@ -308,10 +308,10 @@ class MyController extends GetxController {
   late int deleteIndex;
   void getDeleteIndex(int index) {
     deleteIndex = index;
+    update();
   }
 
   void delete() {
     cartList.removeAt(deleteIndex);
-    update();
   }
 }

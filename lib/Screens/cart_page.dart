@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
-// ignore_for_file: prefer_const_literals_to_create_immutables, prefer_const_constructors, use_full_hex_values_for_flutter_colors
 
 import 'package:task/Screens/Widget/home_page.dart';
 
