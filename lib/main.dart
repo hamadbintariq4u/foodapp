@@ -29,8 +29,6 @@ class MyApp extends StatelessWidget {
           appBarTheme: AppBarTheme(
             color: Color(0xff2b2b2b),
           )),
-
-      // home: CartPage(),
       home: StreamBuilder(
         stream: FirebaseAuth.instance.authStateChanges(),
         // initialData: initialData,

@@ -116,6 +116,33 @@ class MyController extends GetxController {
     return drinkList;
   }
 
+  ///////////////// 5th Category //////////////////
+  var allList = <CategoriesModle>[].obs;
+  late CategoriesModle allModle;
+  Future<void> getAllCategorie() async {
+    List<CategoriesModle> newAllList = [];
+    QuerySnapshot querySnapshot = await FirebaseFirestore.instance
+        .collection('categories')
+        .doc('1cLnIt57ySSIQxvpLpbG')
+        .collection('all')
+        .get();
+    querySnapshot.docs.forEach((element) {
+      var data = element.data() as Map<String, dynamic>;
+
+      allModle = CategoriesModle(
+        image: data['image'],
+        name: data['name'],
+      );
+
+      newAllList.add(allModle);
+      allList.value = newAllList;
+    });
+  }
+
+  get throwAllList {
+    return allList;
+  }
+
   /////////////////////  Single Food Item     //////////////////////////
   List<FoodModle> foodModleList = [];
   late FoodModle foodModle;
